@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --teal: rgb(0, 60, 62);
+}
+
+header, footer {
+    width: 100vw;
+    background-color: var(--teal);
+    color: white;
+    padding: 30px 0;
+}
+
+header h1 {
+    margin: 0 30px;
+}
+
+footer p {
+    text-align: center;
+}
+
+#search {
+    width: 30%;
+    border: var(--teal) solid 1px;
+    background-color: lightgrey;
+    border-radius: 10px;
+    height: 100vh;
+    margin: 20px;
+    box-shadow: 5px 5px 5px var(--teal);
+}
+
+#search-city {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#search-city input {
+    padding: 10px;
+    margin-right: 20px;
+}
+
+main {
+    display: flex;
+}
+
+#weather {
+    width: 70%;
+    border: var(--teal) solid 1px;
+    height: 100vh;
+    margin: 20px;
+}
+
+#current-weather {
+    height: 50%;
+    border: var(--teal) solid 1px;
+    margin: 20px;
+}
+
+#five-day {
+    height: 40%;
+    display: flex;
+    border: 1px solid var(--teal);
+    margin: 20px;
+}
+
+#weather-card {
+    background-color: var(--teal);
+    color: white;
+}
