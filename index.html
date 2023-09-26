@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
@@ -11,7 +12,13 @@
     </header>
 
     <section id="search">
-
+        <form id="search-city">
+            <input type="text" id="search-input" name="searchTerm" placeholder="Search by City"/>
+            <input type="submit" id="search-submit" value="Search"/>
+        </form>
+        <div id="recent-searches">
+            <ul></ul>
+        </div>
     </section>
 
     <section id="weather">
@@ -28,5 +35,6 @@
     <footer>
         <p>Weather Dashboard 2023</p>
     </footer>
+    <script src="./assets/script/script.js"></script>
 </body>
 </html>
