@@ -55,9 +55,16 @@ main {
 }
 
 #current-weather {
-    height: 50%;
+    height: 30%;
     border: var(--teal) solid 1px;
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    height: 50px;
+    width: 50px;
 }
 
 #five-day {
