@@ -10,6 +10,7 @@ searchBar.addEventListener('submit', function(event) {
     event.preventDefault();
     var searchCity = event.target.searchTerm.value;
     currentWeatherDiv.innerHTML = '';
+    fiveDayDiv.innerHTML = '';
 
     if (searchCity) {
         getWeather(searchCity)
@@ -59,9 +60,9 @@ function saveSearch(city) {
 function displayCurrentWeather(cityName, temp, description, icon, date, humidity, windSpeed) {
     currentWeatherDiv.innerHTML = `
     <h2>${cityName} (${date})</h2>
+    <img src='http://openweathermap.org/img/wn/${icon}.png' alt=${description}/>
     <p>Current temperate: ${(Math.trunc((temp - 273.15) * (9/5) + 32))}°F</p>
     <p>${description}</p>
-    <img src='http://openweathermap.org/img/wn/${icon}.png' alt=${description}/>
     <p>Humidity: ${humidity}%</p>
     <p>Wind speed: ${windSpeed} MPH</p>
     `
@@ -71,8 +72,8 @@ function displayFiveDay(date, temp, description, icon, humidity, windSpeed) {
     fiveDayDiv.innerHTML += `
     <div id="weather-card">
         <h3>${date}</h3>
-        <p>Temperature: ${(Math.trunc((temp - 273.15) * (9/5) + 32))}°F</p>
         <img src='http://openweathermap.org/img/wn/${icon}.png' alt=${description}/>
+        <p>Temperature: ${(Math.trunc((temp - 273.15) * (9/5) + 32))}°F</p>
         <p>${description}</p>
         <p>Humidity: ${humidity}%</p>
         <p>Wind speed: ${windSpeed} MPH</p>
