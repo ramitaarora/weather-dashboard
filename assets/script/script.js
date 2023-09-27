@@ -36,6 +36,30 @@ function saveSearch(city) {
     
 }
 
+recentSearches.addEventListener('click', function(event) {
+    event.preventDefault();
+    var savedCity = event.target.innerHTML;
+    weatherDiv.innerHTML = '';
+    fiveDayDiv.innerHTML = '';
+
+    if (savedCity) {
+        getWeather(savedCity)
+    }
+})
+
+function loadSearches() {
+    recentSearches.innerHTML = '';
+    var searchArray = [];
+
+    if (localStorage.getItem("searches")) {
+        searchArray = JSON.parse(localStorage.getItem("searches"));
+    }
+
+    for (let i=0; i < searchArray.length; i++) {
+        recentSearches.innerHTML += `<p>${searchArray[i]}</p>`
+    }
+}
+
 // Display Weather
 
 function getWeather(city) {
@@ -100,3 +124,5 @@ function displayFiveDay(date, temp, description, icon, humidity, windSpeed) {
     </div>
     `
 }
+
+loadSearches();
