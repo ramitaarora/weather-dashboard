@@ -15,10 +15,6 @@ main {
     display: flex;
 }
 
-body {
-    background-color: var(--teal);
-}
-
 .hidden {
     display: none;
 }
@@ -87,7 +83,7 @@ footer p {
 #recent-searches p {
     background: linear-gradient(25deg, var(--teal), var(--lightteal));
     color: white;
-    border: 1px solid var(--teal);
+    /* border: 1px solid var(--teal); */
     border-radius: 20px;
     padding: 10px 20px;
     margin: 5px;
