@@ -1,21 +1,42 @@
 var searchBar = document.querySelector("#search-city")
 var searchSubmit = document.querySelector("#search-submit");
+var recentSearches = document.querySelector("#recent-searches")
 
-var currentWeatherDiv = document.querySelector('#current-weather');
+var weatherDiv = document.querySelector('#current-weather');
 var fiveDayDiv = document.querySelector('#five-day')
+var fiveLabel = document.querySelector('#five-label');
 
 // Search Bar
 
 searchBar.addEventListener('submit', function(event) {
     event.preventDefault();
     var searchCity = event.target.searchTerm.value;
-    currentWeatherDiv.innerHTML = '';
+    weatherDiv.innerHTML = '';
     fiveDayDiv.innerHTML = '';
 
     if (searchCity) {
         getWeather(searchCity)
+        saveSearch(searchCity)
     }
 })
+
+function saveSearch(city) {
+    recentSearches.innerHTML = '';
+    var searchArray = [];
+
+    if (localStorage.getItem("searches")) {
+        searchArray = JSON.parse(localStorage.getItem("searches"));
+    }
+    
+    searchArray.push(city);
+    for (let i=0; i < searchArray.length; i++) {
+        recentSearches.innerHTML += `<p>${searchArray[i]}</p>`
+    }
+    localStorage.setItem("searches", JSON.stringify(searchArray));
+    
+}
+
+// Display Weather
 
 function getWeather(city) {
     var url = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=f2e334424bc1375278888844b225e7a5'
@@ -52,23 +73,22 @@ function getWeather(city) {
     })
 }
 
-function saveSearch(city) {
-    return;
-}
-
 
 function displayCurrentWeather(cityName, temp, description, icon, date, humidity, windSpeed) {
-    currentWeatherDiv.innerHTML = `
-    <h2>${cityName} (${date})</h2>
-    <img src='http://openweathermap.org/img/wn/${icon}.png' alt=${description}/>
-    <p>Current temperate: ${(Math.trunc((temp - 273.15) * (9/5) + 32))}°F</p>
-    <p>${description}</p>
-    <p>Humidity: ${humidity}%</p>
-    <p>Wind speed: ${windSpeed} MPH</p>
+    weatherDiv.innerHTML = `
+    <div class="current-weather-view">
+        <h2>${cityName} (${date})</h2>
+        <img src='http://openweathermap.org/img/wn/${icon}.png' alt=${description}/>
+        <p>Current temperate: ${(Math.trunc((temp - 273.15) * (9/5) + 32))}°F</p>
+        <p>${description}</p>
+        <p>Humidity: ${humidity}%</p>
+        <p>Wind speed: ${windSpeed} MPH</p>
+    </div>
     `
 }
 
 function displayFiveDay(date, temp, description, icon, humidity, windSpeed) {
+    fiveLabel.removeAttribute("class", "hidden");
     fiveDayDiv.innerHTML += `
     <div id="weather-card">
         <h3>${date}</h3>
