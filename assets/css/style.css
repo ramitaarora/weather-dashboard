@@ -49,22 +49,20 @@ footer p {
 
 #search {
     width: 20%;
-    /* background: linear-gradient(to left, var(--teal), var(--lightteal)); */
-    /* border: 1px solid black; */
     border-radius: 30px;
     margin: 20px 10px 20px 20px;
     height: 50vh;
 }
 
 #search-city {
-    margin: 20px;
+    margin: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
 #search-city input {
-    padding: 10px;
+    padding: 10px 20px;
     border: 1px solid lightgrey;
     border-radius: 10px;
     margin: 5px;
@@ -82,6 +80,10 @@ footer p {
     cursor: pointer;
 }
 
+#recent-searches {
+    margin: 10px;
+}
+
 #recent-searches p {
     background: linear-gradient(25deg, var(--teal), var(--lightteal));
     color: white;
@@ -92,11 +94,15 @@ footer p {
     text-align: center;
 }
 
+#recent-searches p:hover {
+    cursor: pointer;
+    background: var(--lightteal);
+}
+
 /* Weather Styles */
 
 #weather {
     width: 80%;
-    /* border: var(--teal) solid 1px; */
     height: 100vh;
     margin: 20px 20px 20px 0px;
 }
@@ -110,7 +116,6 @@ footer p {
 
 .current-weather-view {
     height: 30%;
-    /* border: black solid 1px; */
     margin: 0px 20px;
     display: flex;
     flex-direction: column;
@@ -134,10 +139,8 @@ img {
 #five-day {
     height: 40%;
     display: flex;
-    /* border: 1px solid var(--teal); */
     margin: 20px;
     border-radius: 30px;
-    /* flex-wrap: wrap; */
 }
 
 #weather-card {
@@ -157,15 +160,34 @@ img {
     margin-top: 15px;
 }
 
+/* Media Styles */
+
 @media screen and (max-width: 1200px) {
-    main, #search, #recent-searches {
+    main {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
     }
+    #search, #recent-searches {
+        display: block;
+    }
     #five-day {
         flex-wrap: wrap;
+    }
+    .current-weather-view {
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #search, #current-weather, #five-day {
+        width: 100%;
+        display: block;
+        margin: 20px;
+    }
+    main {
+        margin: 20px;
     }
 }
