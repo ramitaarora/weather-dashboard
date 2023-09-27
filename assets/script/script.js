@@ -118,9 +118,8 @@ function displayFiveDay(date, temp, description, icon, humidity, windSpeed) {
         <h3>${date}</h3>
         <img src='http://openweathermap.org/img/wn/${icon}.png' alt=${description}/>
         <p>Temperature: ${(Math.trunc((temp - 273.15) * (9/5) + 32))}°F</p>
-        <p>${description}</p>
         <p>Humidity: ${humidity}%</p>
-        <p>Wind speed: ${windSpeed} MPH</p>
+        <p>Wind: ${windSpeed} MPH</p>
     </div>
     `
 }
