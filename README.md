@@ -21,4 +21,4 @@ This project can be accessed via Github Pages at https://ramitaarora.github.io/w
 
 ## Credits
 
-This quiz was created by Ramita Indurkhya.
+This website was created by Ramita Indurkhya.
