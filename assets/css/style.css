@@ -46,8 +46,7 @@ footer p {
 #search {
     width: 20%;
     border-radius: 30px;
-    margin: 20px 10px 20px 20px;
-    height: 50vh;
+    margin: 20px;
 }
 
 #search-city {
@@ -121,6 +120,7 @@ footer p {
     color: white;
     justify-content: center;
     overflow: hidden;
+    width: 80%;
 }
 
 #current-weather p {
@@ -179,9 +179,10 @@ img {
 
 @media screen and (max-width: 720px) {
     #search, #current-weather, #five-day {
-        width: 100%;
         display: block;
-        margin: 20px;
+    }
+    #search {
+        width: 50%;
     }
     main {
         margin: 20px;
